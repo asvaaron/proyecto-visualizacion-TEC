@@ -5,3 +5,7 @@
 *.aux
 *.log
 *.synctex.gz
+
+# Bibliography
+*.bbl
+*.blg
