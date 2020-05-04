@@ -130,27 +130,27 @@ Es posible extraer los datos en formato de Excel, CSV o en TSV. La descarga es u
 
 \section{Lista de riesgos y estrategias de mitigación}
 
+
 %The below command generates a 4 X 5 risk matrix with ALARP regions for initial risk matrix.
 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[H]
-\centering
-\scriptsize
-\caption{Lista de riesgos}
-\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}| p{2cm} |p{2cm}| p{2cm}|}
-\hline \bf Frecuencia/Consecuencia & \bf Poco Probable & \bf Probable & \bf Ocasionalmente & \bf Probable & \bf Bastante Probable\\ [10pt]
-
-\hline \bf 4-Catastrófico & \cellcolor{yellow!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} &\cellcolor{red!50} \\ [10pt]
-
-\hline \bf 3-Critico &\cellcolor{green!50} & \cellcolor{yellow!50} & \cellcolor{yellow!50} & \cellcolor{red!50} &\cellcolor{red!50} \\ [10pt]
-
-\hline \bf 2-Mayor & \cellcolor{green!50} & \cellcolor{green!50} & \cellcolor{yellow!50} &\cellcolor{yellow!50} &\cellcolor{red!50} \\ [10pt]
-
-\hline \bf 1-Menor & \cellcolor{green!50} & \cellcolor{green!50} & \cellcolor{green!50} &\cellcolor{yellow!50} &\cellcolor{yellow!50} \\ [10pt]
+\begin{tabular}{|l|l|l|l|l|l|}
 \hline
-\end{tabular} \\
+                      & \multicolumn{5}{c|}{\textbf{Consecuencia}}                                                                                                                  \\ \hline
+\textbf{Probabilidad} & \textbf{Muy Bajo}        & \textbf{Bajo}            & \textbf{Moderado}        & \textbf{Alto}            & \textbf{Muy Alto}                               \\ \hline
+\textbf{Muy Alto}     & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  & \cellcolor{red! 50}  \\ \hline
+\textbf{Alto}         & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  & \cellcolor{red! 50}  \\ \hline
+\textbf{Moderado}     & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  \\ \hline
+\textbf{Bajo}         & \cellcolor{green! 50}  & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  \\ \hline
+\textbf{Muy Bajo}     & \cellcolor{green! 50}  & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}\\ \hline
+\end{tabular}
 \end{table}
-
- 
 
 
 %The command below provides the legend for the Risk Matrix
