@@ -160,6 +160,76 @@ Es posible extraer los datos en formato de Excel, CSV o en TSV. La descarga es u
 
 
 \section{Lista de riesgos y estrategias de mitigación}
+\begin{enumerate}
+    \item Poca experiencia en el uso de herramientas y diseño de visualizaciones.
+    \begin{itemize}
+        \item Avance limitado en la creación de la visualización.
+        \item Demoras en los entregables.
+        \item Aumenta la dificultad del desarrollo.
+        \item Visualizaciones poco atractivas.
+        \item Carencia de interactividad.
+    \end{itemize}
+    
+\textbf{Mitigación:}
+  \begin{itemize}
+      \item Buscar herramientas afines a los lenguajes de programación conocidos.
+      \item Buscar una herramienta con amplio soporte y documentación.
+      \item Seleccionar la herramienta en las primeras etapas, con el fin de tener tiempo para aprender a utilizarla.
+      \item Buscar y estudiar ejemplos de visualizaciones con elementos en común.
+  \end{itemize}
+
+    
+    
+\item Falta de información en la base de datos del Banco Mundial para los países elegidos.
+    \begin{itemize}
+        \item  No poder cumplir con el alcance propuesto.
+        \item Limita la comparación entre países.
+    \end{itemize}
+   
+
+\textbf{Mitigación:}
+
+\begin{itemize}
+    \item Buscar otras fuentes de datos.
+    \item Reducir la lista de países.
+    \item Reducir o cambiar el periodo del estudio. 
+\end{itemize}
+  
+    
+\item Poca documentación sobre la estructura de los datos.
+\begin{itemize}
+    \item Puede producir malas interpretaciones en los datos.
+    \item Aumenta la dificultad del desarrollo.
+    \item Demoras en los entregables.
+    \item Conlleva a resultados erróneos.
+\end{itemize}
+    
+\textbf{Mitigación:}
+\begin{itemize}
+    \item Buscar fuentes confiables y reconocidas.
+    \item Preferir fuentes con metadata.
+\end{itemize}
+
+
+\newpage 
+
+\item Alcance muy amplio.
+\begin{itemize}
+    \item Demoras en los entregables.
+    \item Falta de tiempo para completar las visualizaciones.
+    \item Poca representación de los datos.
+    \item Poca claridad en las relaciones.
+\end{itemize}
+   
+    
+\textbf{Mitigación:}
+    \begin{itemize}
+        \item Cumplir con el cronograma.
+        \item Dividir el trabajo de forma eficiente y clara.
+        \item Reunirse periódicamente para mostrar avances y planear la siguiente etapa.
+    \end{itemize}
+    
+\end{enumerate}
 
 
 %The below command generates a 4 X 5 risk matrix with ALARP regions for initial risk matrix.
@@ -172,14 +242,15 @@ Es posible extraer los datos en formato de Excel, CSV o en TSV. La descarga es u
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[H]
 \centering
+\caption{Matriz de riesgos}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
                       & \multicolumn{5}{c|}{\textbf{Consecuencia}}                                                                                                                  \\ \hline
 \textbf{Probabilidad} & \textbf{Muy Bajo}        & \textbf{Bajo}            & \textbf{Moderado}        & \textbf{Alto}            & \textbf{Muy Alto}                               \\ \hline
 \textbf{Muy Alto}     & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  & \cellcolor{red! 50}  \\ \hline
 \textbf{Alto}         & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  & \cellcolor{red! 50}  \\ \hline
-\textbf{Moderado}     & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  \\ \hline
-\textbf{Bajo}         & \cellcolor{green! 50}  & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{red! 50}  \\ \hline
+\textbf{Moderado}     & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}4 & \cellcolor{yellow! 50}& \cellcolor{red! 50}  1 \\ \hline
+\textbf{Bajo}         & \cellcolor{green! 50}  & \cellcolor{green! 50}  & \cellcolor{yellow! 50}  & \cellcolor{yellow! 50} 2 ,3 & \cellcolor{red! 50}  \\ \hline
 \textbf{Muy Bajo}     & \cellcolor{green! 50}  & \cellcolor{green! 50}  & \cellcolor{yellow! 50}& \cellcolor{yellow! 50}& \cellcolor{yellow! 50}\\ \hline
 \end{tabular}
 \end{table}
@@ -211,79 +282,6 @@ Es posible extraer los datos en formato de Excel, CSV o en TSV. La descarga es u
 	\end{figure}
 
 
-\section*{Introduction} % Unnumbered section
-
-\begin{info} % Information block
-	This is an interesting piece of information, to which the reader should pay special attention. Fusce varius orci ac magna dapibus porttitor. In tempor leo a neque bibendum sollicitudin. Nulla pretium fermentum nisi, eget sodales magna facilisis eu. Praesent aliquet nulla ut bibendum lacinia. Donec vel mauris vulputate, commodo ligula ut, egestas orci. Suspendisse commodo odio sed hendrerit lobortis. Donec finibus eros erat, vel ornare enim mattis et.
-\end{info}
-
-% Numbered question, with subquestions in an enumerate environment
-\begin{question}
-	Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
-	% Subquestions numbered with letters
-	\begin{enumerate}[(a)]
-		\item Do this.
-		\item Do that.
-		\item Do something else.
-	\end{enumerate}
-\end{question}
-	
-%------------------------------------------------
-
-
-\begin{center}
-	\begin{minipage}{0.5\linewidth} % Adjust the minipage width to accomodate for the length of algorithm lines
-		\begin{algorithm}[H]
-			\KwIn{$(a, b)$, two floating-point numbers}  % Algorithm inputs
-			\KwResult{$(c, d)$, such that $a+b = c + d$} % Algorithm outputs/results
-			\medskip
-			\If{$\vert b\vert > \vert a\vert$}{
-				exchange $a$ and $b$ \;
-			}
-			$c \leftarrow a + b$ \;
-			$z \leftarrow c - a$ \;
-			$d \leftarrow b - z$ \;
-			{\bf return} $(c,d)$ \;
-			\caption{\texttt{FastTwoSum}} % Algorithm name
-			\label{alg:fastTwoSum}   % optional label to refer to
-		\end{algorithm}
-	\end{minipage}
-\end{center}
-
-% Numbered question, with an optional title
-\begin{question}[\itshape (with optional title)]
-	In congue risus leo, in gravida enim viverra id. Donec eros mauris, bibendum vel dui at, tempor commodo augue. In vel lobortis lacus. Nam ornare ullamcorper mauris vel molestie. Maecenas vehicula ornare turpis, vitae fringilla orci consectetur vel. Nam pulvinar justo nec neque egestas tristique. Donec ac dolor at libero congue varius sed vitae lectus. Donec et tristique nulla, sit amet scelerisque orci. Maecenas a vestibulum lectus, vitae gravida nulla. Proin eget volutpat orci. Morbi eu aliquet turpis. Vivamus molestie urna quis tempor tristique. Proin hendrerit sem nec tempor sollicitudin.
-\end{question}
-
-
-% File contents
-\begin{file}[hello.py]
-\begin{lstlisting}[language=Python]
-#! /usr/bin/python
-
-import sys
-sys.stdout.write("Hello World!\n")
-\end{lstlisting}
-\end{file}
-
-
-% Command-line "screenshot"
-\begin{commandline}
-	\begin{verbatim}
-		$ chmod +x hello.py
-		$ ./hello.py
-
-		Hello World!
-	\end{verbatim}
-\end{commandline}
-
-% Warning text, with a custom title
-\begin{warn}[Notice:]
-  In congue risus leo, in gravida enim viverra id. Donec eros mauris, bibendum vel dui at, tempor commodo augue. In vel lobortis lacus. Nam ornare ullamcorper mauris vel molestie. Maecenas vehicula ornare turpis, vitae fringilla orci consectetur vel. Nam pulvinar justo nec neque egestas tristique. Donec ac dolor at libero congue varius sed vitae lectus. Donec et tristique nulla, sit amet scelerisque orci. Maecenas a vestibulum lectus, vitae gravida nulla. Proin eget volutpat orci. Morbi eu aliquet turpis. Vivamus molestie urna quis tempor tristique. Proin hendrerit sem nec tempor sollicitudin.
-\end{warn}
-
-%----------------------------------------------------------------------------------------
 
 \bibliography{proyecto_visualizacion}{}
 \bibliographystyle{acm}
