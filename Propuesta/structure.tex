@@ -15,9 +15,15 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%\usepackage[table,xcdraw]{xcolor}
+
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
+
+\usepackage[table,xcdraw]{xcolor}
+
 
 \usepackage{amsmath,amsfonts,stmaryrd,amssymb} % Math packages
 
@@ -32,17 +38,15 @@
 	basicstyle=\ttfamily, % Typeset listings in monospace font
 }
 
+%Rename table name
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand{\tablename}{Tabla} 
 
-\usepackage{url}
-
-\usepackage[hidelinks]{ hyperref}
-
+%\usepackage{lmodern}
 
 \usepackage{wrapfig}
 
 \usepackage{lscape}
-
-\usepackage[table]{xcolor}
 
 \usepackage{rotating}
 
@@ -84,20 +88,6 @@
 %Float
 \usepackage{float}
 
-% Footer and header styles 
-\usepackage{fancyhdr}
-\thispagestyle{plain}
-%\pagestyle{fancy}
-%\fancyhf{}
-%\fancyhead[LE,RO]{Tarea 3}
-%\fancyhead[RE,LO]{\leftmark}
-%\fancyfoot[CE,CO]{\thepage }
-%\fancyfoot[LE,RO]{
-%	\begin{figure}[H]
-%		\flushright
-%		\includegraphics[width=4cm, height=2cm]{./img/tec.png}
-%	\end{figure}
-%}
 
 \renewcommand{\baselinestretch}{1.5}
 
