@@ -1,5 +1,5 @@
 {
-  "name": "My Visualizations",
+  "name": "Bubble char energy gdp",
   "organization": "MyOrg",
   "description": "My first visualization package.",
   "logoUrl": "https://logo",
@@ -8,16 +8,16 @@
   "privacyPolicyUrl": "https://url",
   "termsOfServiceUrl": "https://url",
   "packageUrl": "https://url",
-  "devMode": false,
+  "devMode": true,
   "components": [
     {
-      "name": "myViz",
+      "name": "Bubble 3",
       "description": "My first Community Visualization",
       "iconUrl": "https://url",
       "resource": {
-        "js": "gs://energy_analisis_prod/index.js",
-        "config": "gs://energy_analisis_prod/index.json",
-        "css": "gs://energy_analisis_prod/index.css"
+        "js": "gs://chart_map_dev/index.js",
+        "config": "gs://chart_map_dev/index.json",
+        "css": "gs://chart_map_dev/index.css"
       }
     }
   ]
