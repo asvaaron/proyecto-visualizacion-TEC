@@ -155,7 +155,7 @@ export const message = {
           "Ecuador"
         ],
         "yGDPMetric": [
-          null
+          -10
         ],
         "EnergyMetric": [
           13.8166859421647

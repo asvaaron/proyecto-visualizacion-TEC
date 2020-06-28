@@ -6,3 +6,12 @@ code {
   background-color: #fdf6e3;
   color: #586e75;
 }
+
+.bubbles {
+  stroke-width: 1px;
+  stroke: black;
+  opacity: .8
+}
+.bubbles:hover {
+  stroke: black;
+}
