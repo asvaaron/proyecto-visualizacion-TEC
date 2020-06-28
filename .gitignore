@@ -13,6 +13,8 @@
 *.bbl
 *.blg
 
+#Idea IDE
+.idea/
 
 
 ## NPM and NodeJs
