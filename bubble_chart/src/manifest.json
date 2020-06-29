@@ -11,13 +11,13 @@
   "devMode": "DEVMODE_BOOL",
   "components": [
     {
-      "name": "Bubble 3",
+      "name": "Bubble 6",
       "description": "My first Community Visualization",
       "iconUrl": "https://url",
       "resource": {
-        "js": "gs://chart_map_dev/index.js",
-        "config": "gs://chart_map_dev/index.json",
-        "css": "gs://chart_map_dev/index.css"
+        "js": "gs://energy_analisis_prod/index.js",
+        "config": "gs://energy_analisis_prod/index.json",
+        "css": "gs://energy_analisis_prod/index.css"
       }
     }
   ]

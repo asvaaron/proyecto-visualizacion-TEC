@@ -1,6 +1,6 @@
 {
   "dsccViz": {
-    "gcsDevBucket": "gs://chart_map_dev",
+    "gcsDevBucket": "gs://energy_analisis_dev",
     "gcsProdBucket": "gs://energy_analisis_prod",
     "jsFile": "index.js",
     "jsonFile": "index.json",
