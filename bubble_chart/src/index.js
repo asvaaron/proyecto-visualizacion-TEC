@@ -5,7 +5,7 @@ const d3 = require("d3");
 
 // change this to 'true' for local development
 // change this to 'false' before deploying
-export const LOCAL = false;
+export const LOCAL = true;
 
 // write viz code here
 const drawViz = (data) => {
@@ -38,7 +38,7 @@ var svg = d3.select("body")
   let minGDP = Number.MAX_SAFE_INTEGER;
   let maxEnergy = 0;
   let minEnergy = Number.MAX_SAFE_INTEGER;
-  let countries = new Set()
+  let countries = new Set();
   rowData.forEach(function(row) {
     maxDate = Math.max(maxDate, row["xDimensionDate"][0]);
     minDate = Math.min(minDate, row["xDimensionDate"][0]);
@@ -116,6 +116,12 @@ var svg = d3.select("body")
   //       CIRCLES              //
   // ---------------------------//
 
+
+
+  var tooltip = d3.select("body")
+      .append("div")
+      .attr("class","tooltip");
+
   // Add dots
   svg.append('g')
     .selectAll("dot")
@@ -127,14 +133,17 @@ var svg = d3.select("body")
       .attr("cy", function (d) { return y(d["yGDPMetric"][0]); } )
       .attr("r", function (d) { return z(d["EnergyMetric"][0]); } )
       .style("fill", function (d) { return myColor(d["DimensionCountry"][0]); } )
+      .on("mouseover", function(d){tooltip.text(d["DimensionCountry"][0]+ ": "+d["EnergyMetric"][0].toFixed(2)+"%"); return tooltip.style("visibility", "visible");})
+      .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
   // ---------------------------//
     //       LEGEND              //
     // ---------------------------//
 
     // Add one dot in the legend for each name.
-    var size = 20
-    var allgroups = [...countries].sort()
+    var size = 20;
+    var allgroups = [...countries].sort();
     svg.selectAll("myrect")
       .data(allgroups)
       .enter()
@@ -144,7 +153,7 @@ var svg = d3.select("body")
         .attr("r", 7)
         .style("fill", function(d){ return myColor(d)})
         .on("mouseover", highlight)
-        .on("mouseleave", noHighlight)
+        .on("mouseleave", noHighlight);
 
     // Add labels beside legend dots
     svg.selectAll("mylabels")
@@ -158,7 +167,7 @@ var svg = d3.select("body")
         .attr("text-anchor", "left")
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
-        .on("mouseleave", noHighlight)
+        .on("mouseleave", noHighlight);
 
 };
 
