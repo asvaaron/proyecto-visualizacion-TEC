@@ -109,7 +109,7 @@ var svg = d3.select("body")
 
   // And when it is not hovered anymore
   var noHighlight = function(d){
-    d3.selectAll(".bubbles").style("opacity", 1)
+    d3.selectAll(".bubbles").style("opacity", 0.75)
   }
 
   // ---------------------------//
