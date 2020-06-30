@@ -101,16 +101,16 @@ var svg = d3.select("body")
   // What to do when one group is hovered
   var highlight = function(d){
     // reduce opacity of all groups
-    d3.selectAll(".bubbles").style("opacity", .05)
+    d3.selectAll(".bubbles").style("opacity", .05);
     // expect the one that is hovered
     d = d.replace(/[, ]+/g, '')
     d3.selectAll("."+d).style("opacity", 1)
-  }
+  };
 
   // And when it is not hovered anymore
   var noHighlight = function(d){
-    d3.selectAll(".bubbles").style("opacity", 0.75)
-  }
+    d3.selectAll(".bubbles").style("opacity", 0.05)
+  };
 
   // ---------------------------//
   //       CIRCLES              //
