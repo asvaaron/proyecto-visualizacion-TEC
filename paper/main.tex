@@ -2,7 +2,7 @@
 %2345678901234567890123456789012345678901234567890123456789012345678901234567890
 %        1         2         3         4         5         6         7         8
 
-\documentclass[letterpaper, 12 pt, conference]{ieeeconf}  % Comment this line out
+\documentclass[spanish, letterpaper, 12 pt, conference]{ieeeconf}  % Comment this line out
 % if you need a4paper
 %\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4
 % paper
@@ -18,6 +18,10 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\renewcommand\spanishtablename{Tabla}
 
 % The following packages can be found on http:\\www.ctan.org
 %\usepackage{graphics} % for pdf, bitmapped graphics files
@@ -79,6 +83,13 @@ This electronic document is a "live'' template. The various components of your p
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introducción}
 
+El acceso a la electricidad es un pilar fundamental para el bienestar humano, el desarrollo económico y la disminución de la pobreza. Asegurar que todos los habitantes tengan acceso a la energía corresponde a un desafío constante para cualquier nación.
+
+Lamentablemente la mayor parte de los sistemas de energía tienen importantes impactos ambientales. Los sistemas eléctricos están dominados por hidrocarburos  como el carbón, petróleo y gas los cuales producen $CO_2$ y otros gases que recrudecen el efecto invernadero. 
+
+Durante los últimos años se ha dado un cambio de mentalidad por parte de muchos países, apostando por acciones que reduzcan el impacto ambiental. Muchos de los esfuerzos de los países se centran en  cumplir demandadas que permitan propiciar un cambio positivo para el medio ambiente y así evitar un cambio catastrófico en la humanidad. El mundo necesita una transición significativa  de sus fuentes de energía.
+
+Añadido a que muchos autores han afirmado que el acceso y producción de la electricidad se encuentran fuertemente relacionadas al incremento o disminución del PIB de un país, en este artículo se pretende elaborar una visualización que permita analizar el comportamiento de los países latinoamericanos durante el 2000 y 2015, utilizando índices que permitan comparar las fuentes de energías (renovables y no renovables) que consumen y producen  los países, haciendo hincapié en el uso de energías limpias y su relación con el PIB.
 
 
 \section{Trabajo Previo}
@@ -114,32 +125,151 @@ Para la realización de este trabajo se decidió utilizar la metodología propue
 \section{Procedimiento}
 
 \subsection{Recolección de datos}
+
 La búsqueda y recolección de datos se hizo con ayuda del buscador \href{https://www.google.com/publicdata}{Google Public Data Explorer}, que proporciona datos y pronósticos públicos de una variedad de organizaciones internacionales e instituciones académicas, incluidos el Banco Mundial, la OCDE, Eurostat y la Universidad de Denver. 
 Como resultado de la búsqueda decidimos utilizar la base de datos del Banco Mundial, la cual proporciona acceso libre y gratuito a un conjunto completo de datos sobre el desarrollo en los países a través de todo el mundo. Los datos usados para la construcción de la visualización pueden ser consultados en el siguiente enlace: \url{https://datos.bancomundial.org/} 
 
 \subsection{Estructuración  de  los  datos}
 
-
 Para la estructuración, consulta y acceso a los datos se utilizo el servicio de \href{https://cloud.google.com/products/bigquery/}{BigQuery}.
-BigQuery es un almacen de datos en la nube sin servidores, gratuito para consulta de bases de datos publicas y altamente escalable. Permite consultar grandes cantidades de datos estructurados o semi-estructurados mediante el uso de SQL, lo que nos facilito la revisión y análisis de los datos.  
+BigQuery es un almacen de datos en la nube sin servidores, gratuito para consulta de bases de datos publicas y altamente escalable. Permite consultar grandes cantidades de datos estructurados o semi-estructurados mediante el uso de lenguaje SQL, lo que nos facilito la revisión y análisis de los datos.  
 Otra de las ventajas a demás permite la integración y consulta muchas bases de datos publicas entre las cuales esta la base de datos del Banco Mundial.
-
 
 \subsection{Filtrar}
 
-First, confirm that you have the correct template for your paper size. This template has been tailored for output on the US-letter paper size. Please do not use it for A4 paper since the margin requirements for A4 papers may be different from Letter paper size.
+La base de datos del Banco Mundial contiene mas de 1400 diferentes indicadores, cada uno de los cuales tienen un código único que los identifica. La selección de los indicadores relevantes, para la visualización, se hizo buscando de códigos de indicadores que estuvieran relacionados ya sea al PIB, combustibles o energía. De esta forma se logro reducir el numero de indicadores a solamente 48. Estos fueron luego estudiados uno a uno con mas detenimiento para comprobar cuales aportaban información relevante. Al final del proceso solo 12 se consideraron para ser incluidos en la visualización.
+
+Los 12 indicadores seleccionados se listan en la tabla \ref{table_indicartors}.
+
+\begin{table*}[h]
+\caption{Códigos para los indicadores de producción, consumo, tipos de energía y crecimiento de PIB. Banco Mundial}
+\label{table_indicartors}
+\begin{center}
+\begin{tabular}{|c||c|}
+\hline
+Código & Descripción \\
+\hline
+EG.USE.COMM.FO.ZS   &  Consumo de energía procedente de combustibles fósiles (\% del total)\\
+\hline
+EG.FEC.RNEW.ZS  &  Consumo de energía renovable (\% del total)\\
+\hline
+EG.ELC.FOSL.ZS  &  Producción de electricidad a partir de fuentes de petróleo, gas y carbón (\% del total)\\
+\hline
+EG.ELC.RNEW.ZS  &  Producción de energía eléctrica renovable (\% del total)\\
+\hline
+NY.GDP.MKTP.KD.ZG & Crecimiento del PIB per cápita (\% anual)\\
+\hline
+EG.ELC.COAL.ZS & Producción de electricidad a partir de carbón  (\% del total)\\
+\hline
+EG.ELC.NGAS.ZS & Producción de electricidad a partir de fuentes de gas natural (\% del total)\\
+\hline
+EG.ELC.PETR.ZS & Producción de electricidad a partir del petróleo (\% del total)\\
+\hline
+EG.ELC.HYRO.ZS & Producción de electricidad a partir de fuentes hidroeléctricas (\% del total)\\
+\hline
+EG.ELC.NUCL.ZS & Producción de electricidad a partir de fuentes nucleares (\% del total)\\
+\hline
+EG.ELC.RNWX.ZS & Producción de electricidad a partir de fuentes renovables, excluida la hidroeléctrica (\% del total)\\
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+
 
 \subsection{Extraer}
 
-The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations
+En este caso no hizo falta aplicarle ningún tipo de conversión a los datos pues estos ya se encontraban en porcentajes lo que facilita la representación y corporación  de los mismos.
 
 \subsection{Representar}
 
-The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations
+Para el diseño de la visualización optamos por usar otra de las herramientas que brinda la plataforma de Google, esta vez Data Studio cuya función principal es la creación de informes con visualización de datos. Una de las ventajas que provee la herramienta es la facilidad de integración con BigQuery servicio que usamos para estructurar, consultar y manipular en general los datos.
+
+Otro de los aspectos que consideramos de Data Studio es que permite la inclusión, en los reportes, de gráficos personalizados desarrollados en JavaScript. Esto amplia considerablemente la capacidad de generar mejores y mas variadas visualizaciones, a su vez hace que la herramienta sea muy flexibilidad y adaptable ya que existen infinidad de recursos y librerías para la creación de gráficos y visualizaciones en JavaScript.        
+
+En la figura \ref{fig:version_1} se pueden observar 3 tipos gráficos, seleccionados en la primera versión, para representar los diferentes indicadores.
+
+El primer gráfico (figura \ref{fig:mapv1}) se representa el promedio del porcentaje anual del consumo de energía procedente de combustibles por país. Donde la escala de color indica un mayor o menor porcentaje de consumo; entre mas roja se la tonalidad implica que el país tiene un mayor consumo de energías procedentes de combustibles fósiles. Caso contrario entre mas verde la tonalidad implica un menor consumo. Por ultimo se trata de identificar con el color gris a los países con un consumo medio, es decir el consumo es menor al 60\%.
+
+En siguiente gráfico visible en la figura \ref{fig:pibv1} representa el porcentaje de crecimiento del producto interno bruto (PIB) per capita a través del tiempo para cada país.
+
+Y para finalizar representamos el porcentaje promedio de producción de energía por tipo de energía por país usando un gráfico de barras 100\% como se aprecia en la figura \ref{fig:tiposv1}.   
+
+\begin{figure}[h]
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/mapav1.png}
+  \caption{Geo-mapa con el porcentaje promedio anual del consumo de energías procedentes de hidrocarburos. }
+  \label{fig:mapv1}
+\end{subfigure}%
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/PIBv1.png}
+  \caption{Gráfico lineal del PIB anual por país.}
+  \label{fig:pibv1}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/tiposv1.png}
+  \caption{Gráfico de barras 100\% con los tipos de energías por país.}
+  \label{fig:tiposv1}
+\end{subfigure}
+\caption{Gráficos representando los indicadores. Primera versión de la visualización.}
+\label{fig:version_1}
+\end{figure}
 
 \subsection{Refinar}
 
-The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations
+Es importante mencionar que aunque hubo varias iteraciones, y en cada una nuevos cambios se fueron aplicados, pero sólo se presentaran la versión inicial (sección anterior) y la versión final. Esto con fin de no extender en exceso el articulo.
+
+El primer cambio notable que se puede apreciar es en la escala de colores del Geo-Mapa, como se aprecia en la figura \ref{fig:mapv2}, este cambio se realizo para que hubiera una mejor armonía en los colores de la escala. Este cambio fue propuesto por múltiples personas que criticaron la visualización, y nos pareció que tenían razón. La escala sigue teniendo la misma interpretación un color mas rojizo implica un mayor consumo promedio de energías derivadas del petroleo, un tono amarillento sugiere un consumo medio menor al 60\% y los tonos mas verdes sugieren un consumo mucho menor.    
+
+\begin{figure*}[t!]
+  \begin{subfigure}
+  \centering
+  \includegraphics[height=0.5in]{./img/mapav2.png}
+  \caption{Geo-mapa}
+  \label{fig:mapav2}
+\end{subfigure}%
+\begin{subfigure}
+  \centering
+  \includegraphics[height=0.5in]{./img/pibv2.png}
+  \caption{Gráfico de burbujas}
+  \label{fig:pibv2}
+\end{subfigure}
+\end{figure*}
+
+Los cambios mas significativos se dieron en los gráficos del PIB (figura \ref{fig:pibv2}) y los tipos de energía (figura \ref{fig:tiposv2})
+
+\begin{figure}[H]
+\caption{Gráficos representando los indicadores. Versión Final de la visualización.}
+% \begin{subfigure}{\textwidth}
+%   \centering
+%   \includegraphics[width=1\linewidth]{./img/mapav2.png}
+%   \caption{Geo-mapa con el porcentaje promedio anual del consumo de energías procedentes de hidrocarburos.}
+%   \label{fig:mapav2}
+% \end{subfigure}%
+% \begin{subfigure}{\textwidth}
+%   \centering
+%   \includegraphics[width=1\linewidth]{./img/pibv2.png}
+%   \caption{Gráfico de burbujas relación PIB y producción de energía de fuentes renovables anual por país.}
+%   \label{fig:pibv2}
+% \end{subfigure}
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{./img/prodv2.png}
+  \caption{Gráfico de lineas con los porcentajes de producción de energías derivadas del petroleo y renovables respectivamente.}
+  \label{fig:prodv2}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{./img/spiderv2.png}
+  \caption{Gráfico radar representa los porcentajes promedios anuales del tipo de producción de energía por país.}
+  \label{fig:tiposv2}
+\end{subfigure}
+\label{fig:version_2}
+\end{figure}
+
+
 
 \subsection{Interactuar}
 
