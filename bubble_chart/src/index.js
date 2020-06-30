@@ -5,7 +5,7 @@ const d3 = require("d3");
 
 // change this to 'true' for local development
 // change this to 'false' before deploying
-export const LOCAL = true;
+export const LOCAL = false;
 
 // write viz code here
 const drawViz = (data) => {
@@ -85,7 +85,7 @@ var svg = d3.select("body")
 
   // Add a scale for bubble size
   var z = d3.scaleSqrt()
-   .domain([minEnergy, maxEnergy])
+   .domain([0, 100])
    .range([1, 15]);
 
   // Add a scale for bubble color

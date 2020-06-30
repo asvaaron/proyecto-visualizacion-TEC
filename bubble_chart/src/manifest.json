@@ -11,13 +11,13 @@
   "devMode": "DEVMODE_BOOL",
   "components": [
     {
-      "name": "Bubble 6",
+      "name": "Bubble 10 Final",
       "description": "My first Community Visualization",
       "iconUrl": "https://url",
       "resource": {
-        "js": "gs://energy_analisis_prod/index.js",
-        "config": "gs://energy_analisis_prod/index.json",
-        "css": "gs://energy_analisis_prod/index.css"
+        "js": "gs://radial-stacked-dev/index.js",
+        "config": "gs://radial-stacked-dev/index.json",
+        "css": "gs://radial-stacked-dev/index.css"
       }
     }
   ]
